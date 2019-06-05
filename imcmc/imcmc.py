@@ -205,7 +205,8 @@ def plot_multitrace(trace, image, max_size=10, colors=None, **plot_kwargs):
     return fig, ax
 
 
-def make_gif(trace, image, steps=200, leading_point=True,
+def make_gif(trace, image, steps=200, 
+             leading_point=True, leading_point_size=20,
              filename='output.gif', max_size=10, interval=30, dpi=20,
              colors=None, **plot_kwargs):
     """Make a gif of the grayscale trace.
@@ -273,7 +274,7 @@ def make_gif(trace, image, steps=200, leading_point=True,
     for _ in vals:
         lines.append(ax.plot([], [], **default_kwargs)[0])
         if leading_point:
-            points.append(ax.plot([], [], 'o', c=lines[-1].get_color(), markersize=20)[0])   # noqa
+            points.append(ax.plot([], [], 'o', c=lines[-1].get_color(), markersize=leading_point_size)[0])   # noqa
         else:
             points.append(None)
 
